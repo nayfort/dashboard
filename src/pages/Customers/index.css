@@ -1,0 +1,158 @@
+.customersContainer{
+    border-radius: 30px;
+    box-shadow: 0 10px 60px 0 rgba(226, 236, 249, 0.5);
+    background: rgb(255, 255, 255);
+    padding: 30px 38px 40px 38px;
+    gap: 7px;
+    display: flex;
+    flex-direction: column;
+}
+
+.buttonActive {
+    box-sizing: border-box;
+    border: 1px solid rgb(0, 176, 135);
+    border-radius: 4px;
+    background: rgba(22, 192, 152, 0.38);
+    color: rgb(0, 135, 103);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.buttonInactive {
+    box-sizing: border-box;
+    border: 1px solid rgb(223, 4, 4);
+    border-radius: 4px;
+    background: rgb(255, 197, 197);
+    color: rgb(223, 4, 4);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.customersTableTitle{
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    font-size: 22px;
+    font-weight: 600;
+    line-height: 33px;
+    text-align: left;
+}
+
+.activeCustomersTitle{
+    color: rgb(22, 192, 152);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 21px;
+    text-align: left;
+    margin-bottom: 33px;
+}
+
+.custTableTitle{
+    color: rgb(181, 183, 192);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.tableDataEl{
+    color: rgb(41, 45, 50);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.paginationContainer{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 30px 0 0 0;
+}
+
+.displayPagesData{
+    color: rgb(181, 183, 192);
+    font-family: Poppins;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 21px;
+    text-align: left;
+}
+
+.customersPageHeader{
+    display: flex;
+    justify-content: space-between;
+}
+
+.searchTableElement{
+    display: flex;
+    flex-direction: row;
+    border-radius: 10px;
+    background: rgb(249, 251, 255);
+    height: 38px;
+    align-items: center;
+    padding: 7px 8px;
+    box-sizing: border-box;
+    gap: 8px;
+}
+
+.paginationButtons{
+    border-radius: 4px;
+    width: 25px;
+    height: 24px;
+    box-sizing: border-box;
+    border: 1px solid rgb(238, 238, 238);
+    background: rgb(245, 245, 245);
+    color: rgb(64, 75, 82);
+    font-family: Poppins;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 100%;
+}
+
+.greetingTitle{
+    color: rgb(0, 0, 0);
+    font-family: Poppins;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 36px;
+    text-align: left;
+    margin-bottom: 50px;
+}
+
+.pagination{
+    display: flex;
+    flex-direction: row;
+}
+
+.paginationButtons {
+    background-color: #f1f1f1;
+    border: none;
+    margin: 0 5px;
+    padding: 10px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+}
+
+.paginationButtons.active {
+    background-color: #007bff;
+    color: white;
+    display: flex;
+    align-items: center;
+}
+
+.paginationButtons:disabled {
+    background-color: #e9ecef;
+    cursor: not-allowed;
+    display: flex;
+    align-items: center;
+}
