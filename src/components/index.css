@@ -80,3 +80,59 @@
     line-height: 18px;
     text-align: left;
 }
+
+@media screen and (max-width: 768px) {
+    .sidebarContainer{
+        height: 100%;
+        width: 20%;
+        padding: 0 10px 0 10px;
+    }
+    .customersContainer{
+        padding: 15px 19px 20px 19px;
+    }
+    .pmPhotoStyles {
+        width: 30px;
+        height: 30px;
+    }
+    .descrPM{
+        font-size: 10px;
+    }
+    .pmBlock{
+        display: flex;
+        flex-direction: column;
+    }
+    .greetingTitle {
+        font-size: 16px;
+    }
+    .customersTableTitle {
+        font-size: 18px;
+    }
+    .sideLink {
+        font-size: 12px;
+        font-weight: 400;
+    }
+    .sideLinkComponent {
+        padding: 6px 4px;
+        width: 11%;
+        margin-left: 10px;
+    }
+    .linkComponent {
+        gap: 18px;
+    }
+    .active {
+        border-radius: 7px;
+        background: rgb(89, 50, 234);
+        height: 35px;
+        padding: 6px 4px;
+        box-sizing: border-box;
+        width: 11%;
+        margin-left: 10px;
+    }
+    .app{
+        height: 100%;
+        width: 100%;
+    }
+    .main-content {
+        padding: 10px 10px 10px 30px!important;
+    }
+}

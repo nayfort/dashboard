@@ -1,8 +1,31 @@
-# React + Vite
+![Customer Dashboard](./src/assets/png/proj.png)
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Customer Dashboard
+### Customer Dashboard - это проект, разработанный с использованием React и Vite, который позволяет управлять списком клиентов, включая функции поиска и пагинации.
 
-Currently, two official plugins are available:
+# Установка
+### Перед началом работы убедитесь, что у вас установлены Node.js и npm.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+# Клонируйте репозиторий:
+
+### bash
+### Copy code
+### git clone <URL репозитория>
+## Перейдите в директорию проекта:
+
+### bash
+### Copy code
+### cd <название директории>
+## Установите зависимости:
+
+### bash
+### Copy code
+### npm install
+# Запуск проекта
+## Для запуска проекта в режиме разработки выполните следующую команду:
+
+### bash
+### Copy code
+### npm run dev
+## Проект будет доступен по адресу http://localhost:5173.
+

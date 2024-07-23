@@ -9,6 +9,7 @@ import WalletSVG from "../assets/svg/Wallet.jsx";
 import MessageSVG from "../assets/svg/Message.jsx";
 import PMPhoto from "../assets/png/PMPhoto.png";
 import './index.css';
+import {isMobile} from "../constants.jsx";
 
 const Sidebar = () => (
     <div className='sidebarContainer'>
@@ -21,9 +22,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <KeySVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Dashboard</span>
+                            <KeySVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Dashboard</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
@@ -31,9 +32,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <ProductSquareSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Product</span>
+                            <ProductSquareSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Product</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
@@ -41,9 +42,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <CustomerSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Customers</span>
+                            <CustomerSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Customers</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
@@ -51,9 +52,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <WalletSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Income</span>
+                            <WalletSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Income</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
@@ -61,9 +62,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <DiscountSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Promote</span>
+                            <DiscountSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Promote</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
@@ -71,9 +72,9 @@ const Sidebar = () => (
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <MessageSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Help</span>
+                            <MessageSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Help</span>}
                         </div>
-                        <ArrowRightSVG isActive={isActive} className='arrowIcon' />
+                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
                     </>
                 )}
             </NavLink>
