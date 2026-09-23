@@ -9,7 +9,6 @@ import WalletSVG from "../assets/svg/Wallet.jsx";
 import MessageSVG from "../assets/svg/Message.jsx";
 import PMPhoto from "../assets/png/PMPhoto.png";
 import './index.css';
-import {isMobile} from "../constants.jsx";
 
 const Sidebar = () => (
     <div className='sidebarContainer'>
@@ -17,70 +16,70 @@ const Sidebar = () => (
             <DashboardSVG />
             <div className='versionElement'>v.01</div>
         </div>
-        <div className="sidebar">
-            <NavLink to="/" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+        <nav className="sidebar" aria-label="Main navigation">
+            <NavLink aria-label="Dashboard" to="/" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <KeySVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Dashboard</span>}
+                            <KeySVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Dashboard</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-            <NavLink to="/product" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+            <NavLink aria-label="Product" to="/product" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <ProductSquareSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Product</span>}
+                            <ProductSquareSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Product</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-            <NavLink to="/customers" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+            <NavLink aria-label="Customers" to="/customers" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <CustomerSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Customers</span>}
+                            <CustomerSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Customers</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-            <NavLink to="/income" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+            <NavLink aria-label="Income" to="/income" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <WalletSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Income</span>}
+                            <WalletSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Income</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-            <NavLink to="/promote" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+            <NavLink aria-label="Promote" to="/promote" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <DiscountSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Promote</span>}
+                            <DiscountSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Promote</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-            <NavLink to="/help" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
+            <NavLink aria-label="Help" to="/help" className={({ isActive }) => isActive ? 'sideLinkComponent active' : 'sideLinkComponent'}>
                 {({ isActive }) => (
                     <>
                         <div className='linkComponent'>
-                            <MessageSVG isActive={isActive} className='svgIcon' />{!isMobile && <span className='sideLink'>Help</span>}
+                            <MessageSVG isActive={isActive} className='svgIcon' /><span className='sideLink'>Help</span>
                         </div>
-                        {!isMobile && <ArrowRightSVG isActive={isActive} className='arrowIcon' />}
+                        <span className="arrowIcon"><ArrowRightSVG isActive={isActive} /></span>
                     </>
                 )}
             </NavLink>
-        </div>
+        </nav>
         <div className='pmBlock'>
-            <img src={PMPhoto} alt="Photo" className='pmPhotoStyles'/>
+            <img src={PMPhoto} alt="Evano" className='pmPhotoStyles'/>
             <div>
                 <div>Evano</div>
                 <div className='descrPM'>Project Manager</div>

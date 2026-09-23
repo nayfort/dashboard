@@ -15,17 +15,15 @@ const Customers = () => {
     { name: 'Jacob Jones', company: 'Yahoo', phone: '208-555-0112', email: 'jacob@yahoo.com', country: 'Brazil', status: 'Active' },
     { name: 'Kristin Watson', company: 'Facebook', phone: '704-555-0127', email: 'kristin@facebook.com', country: 'Åland Islands', status: 'Inactive' },
     { name: 'Ray Pole', company: 'Apple', phone: '236-575-0217', email: 'pole@apple.com', country: 'United States', status: 'Active' },
-    // Добавьте больше данных для тестирования
   ]);
 
-  const handleStatusToggle = (index) => {
-    const newData = [...data];
-    newData[index].status = newData[index].status === 'Active' ? 'Inactive' : 'Active';
-    setData(newData);
+  const handleStatusToggle = (email) => {
+    setData((customers) => customers.map((customer) => customer.email === email
+      ? { ...customer, status: customer.status === 'Active' ? 'Inactive' : 'Active' }
+      : customer));
   };
 
   const itemsPerPage = 8;
-  const pages = Math.ceil(data.length / itemsPerPage);
 
   const handlePreviousPage = () => {
     setCurrentPage((prev) => (prev > 1 ? prev - 1 : prev));
@@ -37,17 +35,19 @@ const Customers = () => {
 
   const handleSearchChange = (event) => {
     setSearchQuery(event.target.value);
-    setCurrentPage(1); // Сброс страницы на первую при изменении поиска
+    setCurrentPage(1);
   };
 
+  const query = searchQuery.trim().toLowerCase();
   const filteredData = data.filter((customer) =>
-      customer.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      customer.company.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      customer.phone.includes(searchQuery) ||
-      customer.email.toLowerCase().includes(searchQuery.toLowerCase()) ||
-      customer.country.toLowerCase().includes(searchQuery.toLowerCase())
+      customer.name.toLowerCase().includes(query) ||
+      customer.company.toLowerCase().includes(query) ||
+      customer.phone.includes(query) ||
+      customer.email.toLowerCase().includes(query) ||
+      customer.country.toLowerCase().includes(query)
   );
 
+  const pages = Math.max(1, Math.ceil(filteredData.length / itemsPerPage));
   const displayedData = filteredData.slice((currentPage - 1) * itemsPerPage, currentPage * itemsPerPage);
 
   return (
@@ -56,20 +56,21 @@ const Customers = () => {
         <div className='customersContainer'>
           <div className='customersPageHeader'>
             <div className='membersTitle'>
-              <div className='customersTableTitle'>All Customers</div>
+              <h1 className='customersTableTitle'>All Customers</h1>
               <div className='activeCustomersTitle'>Active Members</div>
             </div>
             <div className='searchTableElement'>
               <Search />
               <input
-                  type="text"
+                  type="search"
+                  aria-label="Search customers"
                   value={searchQuery}
                   onChange={handleSearchChange}
-                  style={{ height: '18px', border: 'none', background: 'inherit', color: '#B5B7C0FF' }}
-                  placeholder='Search'
+                                    placeholder='Search'
               />
             </div>
           </div>
+          <div className="tableScroll" role="region" aria-label="Customer directory" tabIndex={0}>
           <table>
             <thead>
             <tr>
@@ -82,8 +83,8 @@ const Customers = () => {
             </tr>
             </thead>
             <tbody>
-            {displayedData.map((customer, index) => (
-                <tr key={index}>
+            {displayedData.map((customer) => (
+                <tr key={customer.email}>
                   <td className='tableDataEl'>{customer.name}</td>
                   <td className='tableDataEl'>{customer.company}</td>
                   <td className='tableDataEl'>{customer.phone}</td>
@@ -92,34 +93,40 @@ const Customers = () => {
                   <td>
                     <button
                         className={customer.status === 'Active' ? 'buttonActive' : 'buttonInactive'}
-                        onClick={() => handleStatusToggle(index)}>
+                        aria-label={`Toggle status for ${customer.name}`}
+                        aria-pressed={customer.status === 'Active'}
+                        onClick={() => handleStatusToggle(customer.email)}>
                       {customer.status}
                     </button>
                   </td>
                 </tr>
             ))}
+            {displayedData.length === 0 && <tr><td colSpan={6} className="emptyState">No customers found. Try another search.</td></tr>}
             </tbody>
           </table>
+          </div>
           <div className='paginationContainer'>
             <div className='displayPagesData'>
-              Showing data {(currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, filteredData.length)} of {filteredData.length} entries
+              Showing data {filteredData.length === 0 ? 0 : (currentPage - 1) * itemsPerPage + 1} to {Math.min(currentPage * itemsPerPage, filteredData.length)} of {filteredData.length} entries
             </div>
-            <div className="pagination">
-              <button onClick={handlePreviousPage} disabled={currentPage === 1} className='paginationButtons'>
+            <nav className="pagination" aria-label="Customer pages">
+              <button aria-label="Previous page" onClick={handlePreviousPage} disabled={currentPage === 1} className='paginationButtons'>
                 {'<'}
               </button>
               {Array.from({ length: pages }, (_, i) => (
                   <button
                       key={i}
+                      aria-label={`Page ${i + 1}`}
+                      aria-current={currentPage === i + 1 ? 'page' : undefined}
                       onClick={() => setCurrentPage(i + 1)}
                       className={`paginationButtons ${currentPage === i + 1 ? 'active' : ''}`}>
                     {i + 1}
                   </button>
               ))}
-              <button onClick={handleNextPage} disabled={currentPage === pages} className='paginationButtons'>
+              <button aria-label="Next page" onClick={handleNextPage} disabled={currentPage === pages} className='paginationButtons'>
                 {'>'}
               </button>
-            </div>
+            </nav>
           </div>
         </div>
       </>
